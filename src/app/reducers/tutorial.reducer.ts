@@ -1,8 +1,8 @@
 // Exportamos el modelo.
-import { Tutorial } from './../models/tutorial.model'
+import { Tutorial } from '../models/tutorial.model'
 
 // Exportamos la accion y le damos un alias.
-import * as TutorialActions from './../actions/tutorial.actions' 
+import * as TutorialActions from '../actions/tutorial.actions' 
 
 //  DEFINIMOS UN ESTADO INICIAL
 const initialState: Tutorial = {

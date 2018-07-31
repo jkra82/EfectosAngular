@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
-import { Tutorial } from './../models/tutorial.model';
+import { Tutorial } from '../models/tutorial.model';
 import { TutorialService  } from "../services/tutorial.service";
 
 @Component({

@@ -1,6 +1,6 @@
 // EXPORTAMOS EL STORE Y LOS MODELOS
 import { Action } from '@ngrx/store'
-import { Tutorial } from './../models/tutorial.model'
+import { Tutorial } from '../models/tutorial.model'
 
 // DEFINIMOS LAS ACCIONES
 export const ADD_TUTORIAL       = '[TUTORIAL] Add'
