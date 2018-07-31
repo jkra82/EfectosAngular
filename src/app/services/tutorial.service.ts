@@ -3,11 +3,10 @@ import { Store } from '@ngrx/store';
 
 import { Effect, Actions } from '@ngrx/effects';
 
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Tutorial } from './../models/tutorial.model';
 import * as TutorialActions from './../actions/tutorial.actions';
-
 
 import { AppState } from '../app.state';
 
@@ -19,10 +18,10 @@ export class TutorialService {
   tutorials: Observable<Tutorial[]>;
 
   @Effect()
-  effectCreatingTutorial$ = this.actions$.ofType(TutorialActions.ADD_TUTORIAL)
-  .map((accion1: TutorialActions.AddTutorial) => console.log(accion1.type));
-  
+  effectCreatingTutorial$ = this.actions$.ofType(TutorialActions.ADD_TUTORIAL);
+    //.map((accion1: TutorialActions.AddTutorial) => console.log(accion1.type));
 
+/*
  // @Effect() effectCreatingTutorial2$ = this.actions$
  // .ofType(TutorialActions.ADD_TUTORIAL)
  // .map(obj: TutorialActions.AddTutorial => obj.payload )
@@ -30,12 +29,14 @@ export class TutorialService {
  //   console.log('the payload was: ' + payload.message);
  //   return Observable.of({type: "PAYLOAD_EFFECT_RESPONDS", payload: {message: "The effect says hi!"}})
  // });
+ */
 
 
   //.map( (actionlocal:TutorialActions.AddTutorial) => console.log("bravo"));
 
-  constructor( private actions$: Actions,
-               private store: Store<AppState>) {
+  constructor( 
+    private actions$: Actions,
+    private store: Store<AppState>) {
     this.tutorials = store.select('tutorial');
   }
 

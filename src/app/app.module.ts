@@ -5,12 +5,10 @@ import { AppComponent } from './app.component';
 
 import { StoreModule } from '@ngrx/store';
 import { reducer } from './reducers/tutorial.reducer';
+import { Effect, Actions } from '@ngrx/effects';
 import { ReadComponent } from './read/read.component';
 import { CreateComponent } from './create/create.component';
 import { TutorialService } from '../app/services/tutorial.service';
-import { Actions } from '@ngrx/effects';
-
-
 
 @NgModule({
   declarations: [
@@ -24,7 +22,7 @@ import { Actions } from '@ngrx/effects';
       tutorial: reducer
     })
   ],
-  providers: [TutorialService, Actions], // DI
+  providers: [TutorialService, Actions],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
