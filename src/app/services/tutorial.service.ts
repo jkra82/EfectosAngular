@@ -1,23 +1,26 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
+
 import { Effect, Actions } from '@ngrx/effects';
 
 import { Observable } from 'rxjs/Observable';
+import { map } from 'rxjs/operators';
 import { Tutorial } from './../models/tutorial.model';
 import * as TutorialActions from './../actions/tutorial.actions';
 
 
 import { AppState } from '../app.state';
 
-//type Action = TutorialActions.AllActions;
+type Action = TutorialActions.AllActions;
 
 @Injectable()
 export class TutorialService {
 
   tutorials: Observable<Tutorial[]>;
-//.map((accion1: TutorialActions.AddTutorial) => console.log(accion1.type));
-  //@Effect()
-  //effectCreatingTutorial$:Observable<Action> = this.actions$.ofType(TutorialActions.ADD_TUTORIAL)
+
+  @Effect()
+  effectCreatingTutorial$:Observable<Action> = this.actions$.ofType(TutorialActions.ADD_TUTORIAL)
+  .map((accion1: TutorialActions.AddTutorial) => console.log(accion1.type));
 
  // @Effect() effectCreatingTutorial2$ = this.actions$
  // .ofType(TutorialActions.ADD_TUTORIAL)
@@ -30,8 +33,7 @@ export class TutorialService {
 
   //.map( (actionlocal:TutorialActions.AddTutorial) => console.log("bravo"));
 
-  //constructor( private actions$: Actions,
-  constructor( 
+  constructor( private actions$: Actions,
                private store: Store<AppState>) {
     this.tutorials = store.select('tutorial');
   }
