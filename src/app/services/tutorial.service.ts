@@ -19,8 +19,9 @@ export class TutorialService {
   tutorials: Observable<Tutorial[]>;
 
   @Effect()
-  effectCreatingTutorial$:Observable<Action> = this.actions$.ofType(TutorialActions.ADD_TUTORIAL)
+  effectCreatingTutorial$ = this.actions$.ofType(TutorialActions.ADD_TUTORIAL)
   .map((accion1: TutorialActions.AddTutorial) => console.log(accion1.type));
+  
 
  // @Effect() effectCreatingTutorial2$ = this.actions$
  // .ofType(TutorialActions.ADD_TUTORIAL)

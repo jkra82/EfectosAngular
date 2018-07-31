@@ -8,6 +8,7 @@ import { reducer } from './reducers/tutorial.reducer';
 import { ReadComponent } from './read/read.component';
 import { CreateComponent } from './create/create.component';
 import { TutorialService } from '../app/services/tutorial.service';
+import { Actions } from '@ngrx/effects';
 
 
 
@@ -23,7 +24,7 @@ import { TutorialService } from '../app/services/tutorial.service';
       tutorial: reducer
     })
   ],
-  providers: [TutorialService],
+  providers: [TutorialService, Actions], // DI
   bootstrap: [AppComponent]
 })
 export class AppModule { }
