@@ -10,7 +10,7 @@ import { TutorialService } from '../services/tutorial.service';
 import * as TutorialActions from '../actions/tutorial.actions';
 
 import { AppState } from '../app.state';
-import { AddTutorial } from '../actions/tutorial.actions';
+import { AddTutorial, RemoveTutorial } from '../actions/tutorial.actions';
 
 type Action = TutorialActions.AllActions;
 
@@ -22,7 +22,18 @@ export class TutorialEffects {
     .pipe(
       delay(2000),
       map(actionlocal => {
-        console.log("dentro del effect: " + actionlocal.payload.name)
+        console.log("Dentro del effect [ADD]: " + actionlocal.payload.name)
+      })
+      
+    );
+
+  @Effect({dispatch:false})
+  effectDeletingTutorial$ = this.actions$
+    .ofType<RemoveTutorial>(TutorialActions.REMOVE_TUTORIAL)
+    .pipe(
+      delay(2000),
+      map(actionlocal => {
+        console.log("Dentro del effect [REMOVE]: " + actionlocal.payload)
       })
       
     );
