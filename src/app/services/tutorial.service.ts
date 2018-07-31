@@ -16,6 +16,7 @@ type Action = TutorialActions.AllActions;
 export class TutorialService {
 
   tutorials: Observable<Tutorial[]>;
+  prueba :string ="prueba";
 
   constructor(     
     private store: Store<AppState>) {
@@ -29,5 +30,11 @@ export class TutorialService {
   deleteTutorial(index) 
   {
     this.store.dispatch(new TutorialActions.RemoveTutorial(index))
+  }
+
+  loadTutorials()
+  {
+    // aqui primero se leen de servidor
+    // luego se inicia el storage // como coño hacer eso... la accion tiene que ir despues.
   }
 }
