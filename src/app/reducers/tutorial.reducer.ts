@@ -12,7 +12,7 @@ const initialState: Tutorial = {
 
 // DEFINIMOS EL REDUCER
 // siempre reciben dos parametros estado actual y la accion a realizar.
-export function reducer(state: Tutorial[] = [initialState], action: TutorialActions.AllActions) {
+export function tutorialReducer(state: Tutorial[] = [initialState], action: TutorialActions.AllActions) {
     switch(action.type) {
         case TutorialActions.ADD_TUTORIAL:
             return [...state, action.payload]; //añadimos el payload
