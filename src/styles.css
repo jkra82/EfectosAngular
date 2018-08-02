@@ -3,7 +3,7 @@
 body, html {
     margin: 0;
     padding: 0;
-    font-family: 'Arial';
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
 .left, .right {
@@ -16,4 +16,12 @@ input[type="text"] {
     width: 100%;
     padding: 5px;
     margin-bottom: 10px;
+}
+
+.navigation {
+    width: 90%;
+    text-align: right;
+    font-size: small;
+    padding: 3px;
+    margin: 10px;
 }

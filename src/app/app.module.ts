@@ -9,6 +9,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { reducer } from './reducers/tutorial.reducer';
 import { Effect, Actions, EffectsModule } from '@ngrx/effects';
 import { TutorialService } from './services/tutorial.service';
+import { DataTestService } from './services/datatest.service';
 import { TutorialEffects, Efectos } from './effects/tutorial.effect';
 import { routes } from './app.routes';
 
@@ -18,7 +19,7 @@ import { routes } from './app.routes';
   ],
   imports: [
     RouterModule.forRoot(routes, { 
-      enableTracing:true 
+      enableTracing:false
     }),
     BrowserModule,    
     StoreModule.forRoot({
@@ -27,7 +28,7 @@ import { routes } from './app.routes';
     StoreDevtoolsModule,
     EffectsModule.forRoot(Efectos)
   ],
-  providers: [TutorialService, Actions],
+  providers: [TutorialService, Actions, DataTestService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
