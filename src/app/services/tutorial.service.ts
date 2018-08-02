@@ -12,6 +12,8 @@ import { AppState } from '../app.state';
 
 type Action = TutorialActions.AllActions;
 
+export const TUTORIALES_KEY = "tutoriales";
+
 @Injectable()
 export class TutorialService {
 
@@ -34,6 +36,8 @@ export class TutorialService {
 
   loadTutorials()
   {
+    let storedTutorials = (JSON.parse(localStorage.getItem(TUTORIALES_KEY)) ==null)?[]:JSON.parse(localStorage.getItem(TUTORIALES_KEY));
+    this.store.dispatch(new TutorialActions.InitTutoriales(storedTutorials));
     // aqui primero se leen de servidor
     // luego se inicia el storage // como coño hacer eso... la accion tiene que ir despues.
   }

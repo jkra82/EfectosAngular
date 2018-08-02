@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TutorialService  } from "../services/tutorial.service";
+import { TutorialService  } from "../../services/tutorial.service";
 
 @Component({
   selector: 'app-create',

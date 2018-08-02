@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
-import { Tutorial } from '../models/tutorial.model';
-import { TutorialService  } from "../services/tutorial.service";
+import { Tutorial } from '../../models/tutorial.model';
+import { TutorialService  } from "../../services/tutorial.service";
 
 @Component({
   selector: 'app-read',
@@ -28,18 +28,18 @@ export class ReadComponent implements OnInit {
     console.log("dentro del ngOnInet");
     //this.subscription = this.tutorialService.tutorials  ????? cual usar
     this.subscription = this.tutorials
-                .subscribe( (tutorial:Tutorial[]) => {
-                    console.log("dentro del subscribe " + tutorial[tutorial.length-1].name)
-                }, error => {
-                  console.log("error del subscribe ")
-                });
+      .subscribe( (tutorial:Tutorial[]) => {
+          //console.log("dentro del subscribe " + tutorial[tutorial.length-1].name)
+      }, error => {
+        console.log("error del subscribe ")
+      });
 
     //this.tutorials.loadTutorials(); ==> Para cuando las carguemos de algún repository
-}
+  }
 
-ngOnDestroy() {
+  ngOnDestroy() {
     // Cuando se destruye el componente dessubcribimos la subscription
     this.subscription.unsubscribe();
-}
+  }
 
 }
