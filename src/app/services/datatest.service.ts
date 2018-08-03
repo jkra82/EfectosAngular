@@ -1,16 +1,23 @@
 import { Injectable } from '@angular/core';
 
-import { Observable } from 'rxjs';
-import { Tutorial } from '../models/tutorial.model';
-import * as TutorialActions from '../actions/tutorial.actions';
+import { Observable, Subject } from 'rxjs';
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class DataTestService {
 
-  currentValue: Observable<number>;  
+  currentValue: number = 1;  
+  public subject = new Subject<any>();
 
-  constructor(     
-    ) {
-    //
+  initValues() {  
+    var _this = this;
+    setInterval(function() {
+      _this.currentValue++;
+      _this.subject.next(_this.currentValue);
+    }, 2000);
   }
+
+  getValues(): Observable<number> {
+    return this.subject.asObservable();
+  }
+  
 }

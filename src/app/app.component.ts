@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+
+import { Subscription } from 'rxjs';
 
 import { TutorialService } from './services/tutorial.service';
+import { DataTestService } from './services/datatest.service';
 
 @Component({
   selector: 'app-root',
@@ -8,13 +11,25 @@ import { TutorialService } from './services/tutorial.service';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit, OnDestroy{
   title = 'app';
+  private suscription: Subscription;
+  value: number;
 
-  constructor(private tutorialService: TutorialService) { 
+  constructor(
+    private tutorialService: TutorialService,
+    private dataTestService: DataTestService) { 
   }
 
   ngOnInit() {
     this.tutorialService.loadTutorials();
+    this.dataTestService.initValues();
+    this.suscription = this.dataTestService.getValues().subscribe(newValue => {
+      this.value = newValue;
+    });
+  }
+
+  ngOnDestroy() {
+    this.suscription.unsubscribe();
   }
 }
