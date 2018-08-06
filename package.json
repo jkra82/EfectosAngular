@@ -4,8 +4,9 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build --prod",
+    "dev": "ng serve && node.exe server.js",
+    "start": "ng build && node ./bin/www",
+    "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -23,8 +24,14 @@
     "@angular/router": "^6.1.0",
     "@ngrx/effects": "^6.0.1",
     "@ngrx/store": "^6.0.1",
+    "body-parser": "^1.18.3",
     "core-js": "^2.5.7",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "http-errors": "^1.7.0",
+    "morgan": "^1.9.0",
     "rxjs": "^6.2.2",
+    "serve-favicon": "^2.5.0",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {
@@ -44,6 +51,7 @@
     "karma-coverage-istanbul-reporter": "^1.4.3",
     "karma-jasmine": "^1.1.2",
     "karma-jasmine-html-reporter": "^0.2.2",
+    "nodemon": "^1.18.3",
     "protractor": "~5.1.2",
     "rxjs": "^6.2.2",
     "ts-node": "~4.1.0",
