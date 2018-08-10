@@ -10,6 +10,9 @@ export const routes: Routes = [{
 },{
     path: 'other',          // si el path es other lo gestiona LoadChildren (LAZYLOADING)
     loadChildren: './other/other.module#OtherModule'
+},{
+    path: 'users',          // si el path es other lo gestiona LoadChildren (LAZYLOADING)
+    loadChildren: './users/users.module#UsersModule'
 }];
 
 //  Hay muchas mas opciones de enrutado. Paso de parametros, componentes, etc..

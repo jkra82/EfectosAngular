@@ -1,7 +1,19 @@
-div {
+div.content {
     background-color: bisque;
     width: 100%;
     text-align: center;
     padding: 10px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.navigationSection {
+    width: 100%;
+    text-align: left;
+    padding: 10px;
+    background-color: bisque;
+}
+
+.navigationLink {
+    margin: 10px;
+    padding: 10px;    
 }
