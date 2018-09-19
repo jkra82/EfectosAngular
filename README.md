@@ -8,7 +8,8 @@ Probando de todo en Angular
 3- Redux
 4- Actions
 5- CRUD simple
-6- Server layer
+6- Mongo
+7- Server layer
 
 # Cómo levantar las dos partes:
 1- Server layer: 
@@ -16,4 +17,6 @@ Probando de todo en Angular
     - Desde VSC, pestaña Debug, con la config del launch.json actual.
 2- "ng serve": levanta el cliente en modo desarrollo (escucha cambios) de la app, que se comunica con el server.
 
-
+# Seguir con:
+- Componentes separados para CRUD de Users
+- Modificar comandos de packages.json
